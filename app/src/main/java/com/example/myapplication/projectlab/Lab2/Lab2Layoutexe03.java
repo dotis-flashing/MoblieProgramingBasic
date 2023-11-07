@@ -1,5 +1,7 @@
 package com.example.myapplication.projectlab.Lab2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -39,8 +41,14 @@ public class Lab2Layoutexe03 extends Lab2Activity implements View.OnClickListene
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Layoutexe03.this, Lab2Activity.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Lab2Layoutexe03.this, Lab2Activity.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi chuyển đổi màn hình");
+                }
+
             }
         });
     }
@@ -60,29 +68,59 @@ public class Lab2Layoutexe03 extends Lab2Activity implements View.OnClickListene
     }
 
     public void signIn() {
-        if (!checkInput()) {
-            return;
+        try{
+            if (!checkInput()) {
+                return;
+            }
+            Intent intent = new Intent(this, HelloWorld.class);
+            intent.putExtra("username", editTextUsername.getText().toString());
+            startActivity(intent);
+            finish();
+        }catch (Exception e){
+            e.printStackTrace();
+            showErrorDialog("Lỗi chuyển đổi màn hình : "+ e.getMessage().toString());
         }
-        Intent intent = new Intent(this, HelloWorld.class);
-        intent.putExtra("username", editTextUsername.getText().toString());
-        startActivity(intent);
-        finish();
+
     }
 
     public void signUpForm() {
-        Intent intent = new Intent(this, Lab2Layoutexe031.class);
-        startActivity(intent);
-        finish();
+        try{
+            Intent intent = new Intent(this, Lab2Layoutexe031.class);
+            startActivity(intent);
+            finish();
+        }catch (Exception e){
+            e.printStackTrace();
+            showErrorDialog("Lỗi chuyển đổi màn hình");
+        }
+
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == BUTTON_SIGN_IN_ID) {
-            signIn();
-        } else if (view.getId() == R.id.textViewCreate) {
-            signUpForm();
+        try {
+            if (view.getId() == BUTTON_SIGN_IN_ID) {
+                signIn();
+            } else if (view.getId() == R.id.textViewCreate) {
+                signUpForm();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            showErrorDialog("Lỗi chuyển đổi màn hình");
         }
+
     }
 
+    private void showErrorDialog(String errorMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Lỗi");
+        builder.setMessage(errorMessage);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng hộp thoại và thực hiện các hành động cần thiết (nếu có)
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
 }
 

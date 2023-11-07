@@ -1,6 +1,8 @@
 package com.example.myapplication.projectlab.Lab2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,30 +28,65 @@ public class Lab2Activity extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Activity.this, MainActivity.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Lab2Activity.this, MainActivity.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi khi chuyển đổi sang màn hình chính");
+                }
+
             }
         });
         btnexe01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe01.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe01.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi khi chuyển đổi sang màn hình chính");
+                }
+
             }
         });
         btnexe02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe02.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe02.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi khi chuyển đổi sang màn hình chính");
+                }
+
             }
         });
         btnexe03.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe03.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Lab2Activity.this, Lab2Layoutexe03.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi khi chuyển đổi sang màn hình chính");
+                }
             }
         });
+    }
+    private void showErrorDialog(String errorMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Lỗi");
+        builder.setMessage(errorMessage);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng hộp thoại và thực hiện các hành động cần thiết (nếu có)
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }

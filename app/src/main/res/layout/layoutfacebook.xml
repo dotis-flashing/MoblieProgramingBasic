@@ -25,10 +25,10 @@
                 android:layout_height="86dp" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/idimagefblab1"
                 android:layout_width="match_parent"
                 android:layout_height="99dp"
-                app:srcCompat="@drawable/imageinsta" />
+                app:srcCompat="@mipmap/imagefb_foreground" />
 
             <TextView
                 android:layout_width="match_parent"

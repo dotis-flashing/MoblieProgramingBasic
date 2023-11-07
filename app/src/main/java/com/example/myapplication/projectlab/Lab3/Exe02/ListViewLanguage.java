@@ -1,5 +1,7 @@
 package com.example.myapplication.projectlab.Lab3.Exe02;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,19 +26,24 @@ public class ListViewLanguage extends Lab3Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layoutlab3exe02);
-
         ListView listView = findViewById(R.id.idLab3listviewexe02);
         EditText editNameinput = findViewById(R.id.editinputvalue);
         Button buttonAdd = findViewById(R.id.idbtnLab3Addexe02);
         Button buttonUpdate = findViewById(R.id.idbtnLab3Updateexe02);
-        Button buttonRemove = findViewById(R.id.idbtnLab3Deleteexe02);
+//        Button buttonRemove = findViewById(R.id.idbtnLab3Deleteexe02);
 
         btnBack = findViewById(R.id.idbtnBackLab3exe02);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListViewLanguage.this,Lab3Activity.class);
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(ListViewLanguage.this,Lab3Activity.class);
+                    startActivity(intent);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi chuyển đổi màn hình");
+                }
+
             }
         });
 
@@ -60,7 +67,7 @@ public class ListViewLanguage extends Lab3Activity {
                 return;
             }
             if (stringList.contains(edittextInput)) {
-                editNameinput.setText("Item already exists");
+                editNameinput.setError("Item already exists");
                 editNameinput.requestFocus();
                 return;
             }
@@ -82,12 +89,12 @@ public class ListViewLanguage extends Lab3Activity {
         buttonUpdate.setOnClickListener(v -> {
             String edittextInput = editNameinput.getText().toString().trim();
             if (stringList.isEmpty()) {
-                editNameinput.setText("List is empty");
+                editNameinput.setError("List is empty");
                 editNameinput.requestFocus();
                 return;
             }
             if (CURRENT_POST == -1) {
-                editNameinput.setText("Please select an item first");
+                editNameinput.setError("Please select an item first");
                 editNameinput.requestFocus();
                 return;
             }
@@ -113,5 +120,17 @@ public class ListViewLanguage extends Lab3Activity {
             CURRENT_POST = -1;
             Toast.makeText(this, oldText + "has been update to " + edittextInput, Toast.LENGTH_SHORT).show();
         });
+    }
+    private void showErrorDialog(String errorMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Lỗi");
+        builder.setMessage(errorMessage);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng hộp thoại và thực hiện các hành động cần thiết (nếu có)
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }

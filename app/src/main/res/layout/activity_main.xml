@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Lab1"
                 android:textAlignment="center"
-                android:textColor="#FFFBFB"
+                android:textColor="#020202"
                 android:textStyle="bold" />
 
             <Button
@@ -48,6 +48,8 @@
                 android:layout_height="wrap_content"
                 android:text="Lab 2"
                 android:textAlignment="center"
+                android:textColor="#020202"
+
                 android:textStyle="bold" />
 
             <Button
@@ -56,19 +58,56 @@
                 android:layout_height="wrap_content"
                 android:text="Lab 3"
                 android:textAlignment="center"
+                android:textColor="#020202"
+
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/idlab4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Lab 4"
+                android:textColor="#020202"
+                android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/idlab5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Lab 5" />
+
+            <Button
+                android:id="@+id/idlab6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lab 6" />
+
+            <Button
+                android:id="@+id/idlab7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lab 7"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/idlab8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lab 8"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lab 9" />
+
+            <Button
+                android:id="@+id/idbtnLab10code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lab 10"
+                android:textColor="#000000" />
 
         </LinearLayout>
 

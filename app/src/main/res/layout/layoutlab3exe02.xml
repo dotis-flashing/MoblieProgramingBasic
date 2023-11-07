@@ -12,6 +12,7 @@
             android:id="@+id/editinputvalue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FB0000"
             android:ems="10"
             android:hint="Name"
             android:inputType="text" />
@@ -36,12 +37,6 @@
                 android:layout_weight="1"
                 android:text="Update" />
 
-            <Button
-                android:id="@+id/idbtnLab3Deleteexe02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Remove" />
         </LinearLayout>
 
         <ListView

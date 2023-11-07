@@ -7,12 +7,14 @@ import android.widget.Button;
 
 import com.example.myapplication.projectlab.Lab3.Exe01.Run;
 import com.example.myapplication.projectlab.Lab3.Exe02.ListViewLanguage;
+import com.example.myapplication.projectlab.Lab3.Exe03.RunPlayer;
 import com.example.myapplication.projectlab.MainActivity;
 import com.example.myapplication.projectlab.R;
 
 public class Lab3Activity extends MainActivity {
     Button layoutlab3exe01;
     Button layoutlab3exe02;
+    Button layoutlab3exe03;
     Button idLab3ActivityBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,14 @@ public class Lab3Activity extends MainActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Lab3Activity.this, ListViewLanguage.class);
+                startActivity(intent);
+            }
+        });
+        layoutlab3exe02 = findViewById(R.id.idListviewSoccer);
+        layoutlab3exe02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Lab3Activity.this, RunPlayer.class);
                 startActivity(intent);
             }
         });

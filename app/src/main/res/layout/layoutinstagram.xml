@@ -19,10 +19,10 @@
             android:layout_height="100dp" />
 
         <ImageView
-            android:id="@+id/imageView16"
+            android:id="@+id/idtnimageinsta"
             android:layout_width="match_parent"
             android:layout_height="94dp"
-            app:srcCompat="@drawable/download" />
+            app:srcCompat="@drawable/imastagram" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                         android:id="@+id/button7"
                         android:layout_width="match_parent"
                         android:layout_height="59dp"
-                        android:text="Button" />
+                        android:text="Login" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -107,12 +107,11 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/idfbinsta"
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/imageinsta"
-                            tools:srcCompat="@drawable/imageinsta" />
+                            app:srcCompat="@drawable/metr" />
 
                         <TextView
                             android:layout_width="wrap_content"

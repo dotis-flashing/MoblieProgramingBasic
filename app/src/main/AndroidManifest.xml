@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectLab"
+        android:usesCleartextTraffic="true"
+
         tools:targetApi="31">
+        <activity
+            android:name=".Lab10.Exe1.Exercise1"/>
+
+        <activity
+            android:name=".Lab8.Lab8ActivityMain"/>
+        <activity
+            android:name=".Lab5.Lab5Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".Lab4.DrinkActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Lab4.FoodActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Lab4.Mainlab4"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Lab3.Exe03.RunPlayer"
+            android:exported="true"/>
         <activity
             android:name=".Lab3.Exe02.ListViewLanguage"
             android:exported="true"/>

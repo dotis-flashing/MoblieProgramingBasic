@@ -1,6 +1,8 @@
 package com.example.myapplication.projectlab.Lab2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +27,14 @@ public class Lab2Layoutexe01 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Lab2Layoutexe01.this, Lab2Activity.class);
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(Lab2Layoutexe01.this, Lab2Activity.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showErrorDialog("Lỗi khi chuyển đổi sang màn hình chính");
+                }
+
             }
         });
         EditText editTextMin = findViewById(R.id.editTextNumberMin);
@@ -64,4 +72,16 @@ public class Lab2Layoutexe01 extends Activity {
         });
     }
 
+    private void showErrorDialog(String errorMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Lỗi");
+        builder.setMessage(errorMessage);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng hộp thoại và thực hiện các hành động cần thiết (nếu có)
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
 }
